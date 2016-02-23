@@ -16,4 +16,8 @@ class JsonParser
       end.reduce(:&)
     end
   end
+
+  def add(name, params)
+    @data[name] << params
+  end
 end

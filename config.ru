@@ -1,2 +1,2 @@
 require_relative "server"
-Rack::Handler::WEBrick.run Server
+Rack::Handler::WEBrick.run Server.new

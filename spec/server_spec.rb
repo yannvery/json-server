@@ -6,7 +6,7 @@ describe Server do
   include Rack::Test::Methods
 
   def app
-    Server
+    Server.new
   end
 
   it "returns kings" do
@@ -42,4 +42,3 @@ describe Server do
   end
 
 end
-
