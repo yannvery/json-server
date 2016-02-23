@@ -1,26 +1,15 @@
 require 'json'
 require 'rack'
-
-file = File.read('db.json')
-my_hash = JSON.parse(file)
-
-
-
+require_relative 'json_parser'
 app = Proc.new do |env|
   request = Rack::Request.new(env)
+  parser = JsonParser.new('db.json')
+  result = parser.collection(request.path.gsub('/',''))
 
-  if request.path == "/kings"
-    result = my_hash["kings"].select do |king|
-      request.params.map do |key, value|
-        king[key].to_s == value.to_s
-      end.reduce(:&)
-    end
-
-    ['200', {'Content-Type' => 'application/json'}, [result.to_json]]
-  else
-    ['200', {'Content-Type' => 'application/json'}, [my_hash.to_json]]
+  if !request.params.empty?
+    result = parser.select(request.path.gsub('/',''), request.params)
   end
-
+  ['200', {'Content-Type' => 'application/json'}, [result.to_json]]
 end
 
 Rack::Handler::WEBrick.run app
