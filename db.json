@@ -1,0 +1,39 @@
+{
+  "kings":[
+    {
+      "id": 1,
+      "name": "Edmund lronside",
+      "country": "United Kingdom",
+      "house": "House of Wessex",
+      "years": "1016"
+    },
+    {
+      "id": 2,
+      "name": "Cnut",
+      "country": "United Kingdom",
+      "house": "House of Denameark",
+      "years": "1016-1035"
+    },
+    {
+      "id": 3,
+      "name": "Harold I Harefoot",
+      "country": "United Kingdom",
+      "house": "House of Denameark",
+      "years": "1035-1040"
+    },
+    {
+      "id": 4,
+      "name": "Harthacanut",
+      "country": "United Kingdom",
+      "house": "House of Denameark",
+      "years": "1040-1042"
+    },
+    {
+      "id": 5,
+      "name": "Edward the Confessor",
+      "country": "United Kingdom",
+      "house": "House of Wessex",
+      "years": "1042-1066"
+    }
+  ]
+}
