@@ -35,5 +35,37 @@
             "name": "Edward the Confessor",
             "years": "1042-1066"
         }
+    ],
+    "knights": [
+        {
+            "country": "United Kingdom",
+            "house": "House of Wessex",
+            "id": 1,
+            "name": "Edmund lronside"
+        },
+        {
+            "country": "United Kingdom",
+            "house": "House of Denameark",
+            "id": 2,
+            "name": "Cnut"
+        },
+        {
+            "country": "United Kingdom",
+            "house": "House of Denameark",
+            "id": 3,
+            "name": "Harold I Harefoot"
+        },
+        {
+            "country": "France",
+            "house": "House of Denameark",
+            "id": 4,
+            "name": "Harthacanut"
+        },
+        {
+            "country": "France",
+            "house": "House of Wessex",
+            "id": 5,
+            "name": "Edward the Confessor"
+        }
     ]
 }
