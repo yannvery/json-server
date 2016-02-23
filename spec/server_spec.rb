@@ -28,17 +28,46 @@ describe Server do
     end
   end
 
-  it "creates items" do
-    post "/kings", {
-      country: "United Kingdom",
-      house: "House of Brittany",
-      name: "William the Conqueror",
-      years: "1106"
-    }
-    get "/kings", name: "William the Conqueror"
+  describe "creating items" do
+    let(:william) { JSON.parse(last_response.body) }
 
-    william = JSON.parse(last_response.body)
-    expect(william.count).to eq 1
+    context "for an existing collection" do
+      before do
+        post "/kings", {
+          country: "United Kingdom",
+          house: "House of Brittany",
+          name: "William the Conqueror",
+          years: "1106"
+        }
+        get "/kings", name: "William the Conqueror"
+      end
+
+      it "creates items" do
+        expect(william.count).to eq 1
+      end
+
+      it "creates ids for the new items" do
+        expect(william.first["id"]).to eq 6
+      end
+    end
+
+    context "for a new collection" do
+      before do
+        post "/queens", {
+          country: "United Kingdom",
+          house: "House of Brittany",
+          name: "Elizabeth II",
+          years: "1950"
+        }
+        get "/queens", name: "Elizabeth II"
+      end
+
+      it "creates the new collection and the item" do
+        expect(elizabeth["id"]).to eq 1
+      end
+
+      let(:elizabeth) { JSON.parse(last_response.body).first }
+    end
   end
 
 end
